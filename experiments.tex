@@ -1,0 +1,71 @@
+\section{Experiments}
+We evaluate the accuracy of performing one-shot classification on a range of datasets taken from publicly available labeled datasets.
+
+\subsection{Datasets}
+
+\subsection{Maximum One-Shot Accuracy}
+We needed to know how accurate this approach can be in theory, if the user happens to be lucky enough to find the best representatives for each category.
+
+\begin{table}[]
+\centering
+\caption{Maximum achieved accuracy using one-shot classification}
+\label{my-label}
+\begin{tabular}{lll}
+\toprule
+Categories                  & \# Documents & Max accuracy \\
+\midrule
+Village,Film                & 9307         & 0.9992       \\
+Village,Animal              & 8960         & 0.9979       \\
+Animal,Film                 & 8947         & 0.9946       \\
+Animal,Company              & 9220         & 0.9943       \\
+Animal,Film,Company,Village & 18527        & 0.9706       \\
+autos,baseball              & 1046         & 0.9703       \\
+guns,hardware               & 1078         & 0.9693       \\
+mideast,electronics         & 1063         & 0.9689       \\
+Animal,Film,Company         & 13867        & 0.9688       \\
+christian,guns              & 1099         & 0.9380       \\
+med,electronics             & 1112         & 0.9324       \\
+atheism,space               & 1004         & 0.9232       \\
+baseball,hockey             & 1069         & 0.9063       \\
+autos,baseball,space        & 1605         & 0.8964       \\
+Animal,Plant                & 8730         & 0.8540       \\
+politics,religion           & 774          & 0.8264      
+\end{tabular}
+\end{table}
+
+We also tested the accuracy using Fasttext and Word2Vec embeddings just on those sets of representatives that gave us the best accuracy using GloVe embeddings. It should be noted that these embeddings may well have achieved better results using different representatives.
+
+\begin{table}[]
+\centering
+\caption{Accuracy achieved on the same representatives using FastText embeddings}
+\label{my-label-2}
+\begin{tabular}{lll}
+\toprule
+Categories                  & GloVe & Fasttext \\
+\midrule
+Village,Film                & 0.9992        & 0.9977       \\
+Village,Animal              & 0.9979        & 0.9887       \\
+Animal,Film                 & 0.9946        & 0.869       \\
+Animal,Company              & 0.9943        & 0.8954       \\
+Animal,Film,Company,Village & 0.9706        & 0.886       \\
+autos,baseball              & 0.9703        & 0.6456       \\
+guns,hardware               & 0.9693        & 0.7342       \\
+mideast,electronics         & 0.9689        & 0.9274       \\
+Animal,Film,Company         & 0.9688        & 0.812       \\
+christian,guns              & 0.9380        & 0.7265       \\
+med,electronics             & 0.9324        & 0.7568       \\
+atheism,space               & 0.9232        & 0.6946       \\
+baseball,hockey             & 0.9063        & 0.6317       \\
+autos,baseball,space        & 0.8964        & 0.6454      \\
+Animal,Plant                 & 0.8540        & 0.6717       \\
+politics,religion           & 0.8264        & 0.7681     
+\end{tabular}
+\end{table}
+
+\subsection{Finding Good Representatives}
+
+
+
+\section{LDA Results}
+
+ 

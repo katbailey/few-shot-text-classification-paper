@@ -1,0 +1,25 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{Bojanowski \bgroup et al.\egroup
+  }2016]{bojanowski2016subword}
+Piotr Bojanowski, Edouard Grave, Armand Joulin, Tom{\'a}{\v{s}} Mikolov
+\newblock 2016.
+\newblock Enriching Word Vectors with Subword Information.
+\newblock In {\em Proc. TACL}.
+
+\bibitem[\protect\citename{Mikolov \bgroup et al.\egroup
+  }2013]{mikolov2013distributed}
+Tom{\'a}{\v{s}} Mikolov, Ilya Sutskever, Kai Chen, Greg~S. Corrado, and Jeff
+  Dean.
+\newblock 2013.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock In {\em Adv. NIPS}.
+
+\bibitem[\protect\citename{Pennington \bgroup et al.\egroup }2014]{pennington2014glove}
+Jeffrey Pennington and Richard Socher and Christopher D. Manning.
+\newblock 2014.
+\newblock GloVe: Global Vectors for Word Representation.
+\newblock {\em Empirical Methods in Natural Language Processing (EMNLP)}, 1532--1543.
+
+\end{thebibliography}

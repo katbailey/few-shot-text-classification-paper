@@ -1,0 +1,87 @@
+%
+% File acl2012.tex
+%
+% Contact: Maggie Li (cswjli@comp.polyu.edu.hk), Michael White (mwhite@ling.osu.edu)
+%%
+%% Based on the style files for ACL2008 by Joakim Nivre and Noah Smith
+%% and that of ACL2010 by Jing-Shin Chang and Philipp Koehn
+
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc} % use 8-bit T1 fonts
+\usepackage[letterpaper]{geometry}
+\usepackage{acl2012}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{multirow}
+\usepackage{url}
+\makeatletter
+\newcommand{\@BIBLABEL}{\@emptybiblabel}
+\newcommand{\@emptybiblabel}[1]{}
+\makeatother
+% \usepackage[draft]{hyperref}
+\usepackage[hidelinks]{hyperref}
+\setlength\titlebox{6.5cm}    % Expanding the titlebox
+
+
+\usepackage{booktabs}
+\usepackage{caption}
+
+
+\newcommand{\update}[1]{\textcolor{red}{#1}}
+
+\title{Few-Shot Text Classification with Pre-trained Word Embeddings and a Human in the Loop}
+
+\author{Katherine Bailey\and Sunny Chopra \\
+  Acquia \\
+  \texttt{\{katherine.bailey,sunny.chopra\}@acquia.com}
+}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Most of the literature around text classification treats it as a supervised learning problem: given a corpus of labeled documents, train a classifier such that it can accurately predict the classes of unseen documents. In industry, however, it is not uncommon for a business to have entire corpora of documents where few or none have been classified, or where existing classifications have become meaningless. With web content, for example, poor taxonomy management can result in labels being applied indiscriminately, making filtering by these labels unhelpful. Our work aims to make it possible to classify an entire corpus of unlabeled documents using a human-in-the-loop approach, where the content owner manually classifies just one or two documents per category and the rest can be automatically classified. This "few-shot" learning approach requires rich representations of the documents such that those that have been manually labeled can be treated as prototypes, and automatic classification of the rest is a simple case of measuring the distance to prototypes. Our initial approach uses pre-trained word embeddings, where documents are represented using a simple weighted average of constituent word embeddings. We have tested the accuracy of the approach on existing labeled datasets and provide the results here.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection*{Word Embeddings}
+
+Word Embedding is a Natural Language Processing (NLP) technique that is used to turn words (even sentences and paragraphs) into vectors of real numbers. Some such transformation is always necessary when working with text as machine learning algorithms can only work with numeric values, not raw text. \newcite{mikolov2013distributed} introduced efficient techniques for learning distributed vector representations of words from very large corpora. This method is called word2vec and since then alternative approaches have been put forward by others such as and \newcite{pennington2014glove} (GloVe) and \newcite{bojanowski2016subword} (FastText). There is also doc2vec for learning representations of entire documents.
+
+These approaches differ in the way the representations are generated.  Word2vec and doc2vec are "predictive" models, whereas GloVe is categorized as a "count-based" model.  Predictive models learn their vectors by predicting the target word with neighboring context words given as an input to a feed-forward neural network.  The weights of this network are optimized by using stochastic gradient descent and these weights are vector representation of the words in the vocabulary.  On the other hand, count-based models learn their vectors by finding a lower dimensional representation of each word by minimizing a reconstruction loss function on the co-occurrence count matrix given as an input.
+
+\subsection*{Few-Shot Learning}
+Few-shot learning is an approach to learn a category of an object by just using a few human labeled examples.  This is achieved by making use of prior knowledge of the different categories for which a large amount of interpreted data is accessible.  Knowledge transfer and approaches that rely on contextual information are a few methods that can be used in order to train such a model.
+
+If there is no training data for the current task, it becomes an extreme case which is termed as zero-shot learning.  The methods used to approach this problem rely either on latent topics that are identified from the data, or semantic concepts or characteristics.  In both these cases, detecting attributes is the common task that is essential.
+
+\subsection*{Human-in-the-Loop}
+Human-in-the-loop is a fairly new branch of artificial intelligence that leverages humans as well as machines in order to train machine learning models. It is often confused with active learning which involves humans in order to handle low confidence predictions.  Human-in-the-loop is a much broader subject that includes active learning as well as other ways of creating labeled data using humans for training models on.
+
+\section{Few-Shot Text Classification with a Human in the Loop}
+Our approach involves a "classification engine" that the user (the content owner) interacts with. A batch of documents is fed to the engine and each document is converted into a 300-dimensional vector. A set of two or more categories is specified and then Latent Dirichlet Allocation is run on the batch using the number of categories provided as the number of topics. This serves to surface the most likely representative documents for each category. These are then presented to the user, who must choose some documents to manually classify for each category. The system then has a vector representing each category: if only one document was classified for a category then that document's vector is used as the category vector, otherwise the vectors of multiple documents are averaged together. Once this is done, the remaining documents are compared against each category representative using simple cosine similarity and each one is assigned the category whose vector it is closest to. A score is also assigned for each prediction. All of these steps are explained in detail below.
+
+\input{relatedwork}
+
+\input{approach}
+
+\input{experiments}
+
+\input{discussion}
+
+\section{Conclusion}
+
+In this paper, we investigate the accuracy achievable on classification tasks using one-shot learning on publicly available datasets. We also investigate the accuracy that can be obtained by trying the combinations of category representatives that can be surfaced by running LDA on the dataset.
+
+% \clearpage
+\bibliography{thebibliography}
+\bibliographystyle{acl2012}
+
+\end{document}
+
+
