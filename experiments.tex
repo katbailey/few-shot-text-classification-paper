@@ -2,38 +2,36 @@
 We evaluate the accuracy of performing one-shot classification on some publicly available labeled datasets.
 
 \subsection{Datasets}
-We created 2- and 3-category subsets of the "20 Newsgroups" dataset. The original dataset consists of 20000 messages taken from 20 newsgroups on subjects like cars, religion, guns and baseball. We used the scikit\_learn python library to extract subsets of this data. We also created 2-, 3- and 4-category subsets of the DBPedia dataset, which contains the first paragraph of the wikipedia page for ~0.5M entities in 15 categories, e.g. Animal, Film, Plant, Company, etc.
+We created 2- and 3-category subsets of the "20 Newsgroups" dataset. The original dataset consists of 20000 messages taken from 20 newsgroups on subjects like cars, religion, guns and baseball. We used the scikit\_learn python library to extract subsets of this data. We also created 2-, 3- and 4-category subsets of the DBPedia dataset, which contains the first paragraph of the wikipedia page for around half a millino entities in 15 categories, e.g. Animal, Film, Plant, Company, etc.
 
 We perform some basic cleaning of the text and remove stop words before converting documents into vectors.
 
 \begin{table}[]
 \centering
-\captionsetup{skip=0.5\baselineskip,size=footnotesize,position=bottom}
-\footnotesize
-\label{bruteforce}
+\captionsetup{position=bottom}
 \begin{tabular}{lll}
 \toprule
 Categories                  & \# docs & Max acc. \\
 \midrule
-Village,Film                & 9307         & 0.9992       \\
+Village, Film                & 9307         & 0.9992       \\
 Village,Animal              & 8960         & 0.9979       \\
-Animal,Film                 & 8947         & 0.9946       \\
-Animal,Company              & 9220         & 0.9943       \\
-Animal,Film,Company,Village & 18527        & 0.9706       \\
-autos,baseball              & 1046         & 0.9703       \\
-guns,hardware               & 1078         & 0.9693       \\
-mideast,electronics         & 1063         & 0.9689       \\
-Animal,Film,Company         & 13867        & 0.9688       \\
-christian,guns              & 1099         & 0.9380       \\
-med,electronics             & 1112         & 0.9324       \\
-atheism,space               & 1004         & 0.9232       \\
-baseball,hockey             & 1069         & 0.9063       \\
-autos,baseball,space        & 1605         & 0.8964       \\
-Animal,Plant                & 8730         & 0.8540       \\
-politics,religion           & 774          & 0.8264      \\
+Animal, Film                 & 8947         & 0.9946       \\
+Animal, Company              & 9220         & 0.9943       \\
+Animal, Film, Company, Village & 18527        & 0.9706       \\
+autos, baseball              & 1046         & 0.9703       \\
+guns, hardware               & 1078         & 0.9693       \\
+mideast, electronics         & 1063         & 0.9689       \\
+Animal, Film, Company         & 13867        & 0.9688       \\
+christian, guns              & 1099         & 0.9380       \\
+med, electronics             & 1112         & 0.9324       \\
+atheism, space               & 1004         & 0.9232       \\
+baseball, hockey             & 1069         & 0.9063       \\
+autos, baseball, space        & 1605         & 0.8964       \\
+Animal, Plant                & 8730         & 0.8540       \\
+politics, religion           & 774          & 0.8264      \\
 \bottomrule
 \end{tabular}
-\caption{Maximum achieved accuracy using one-shot classification}
+\caption{Maximum achieved accuracy using one-shot classification}\label{bruteforce}
 \end{table}
 
 \subsection{Maximum One-Shot Accuracy}
@@ -48,81 +46,78 @@ We ran LDA on our datasets specifying the number of known categories as the numb
 
 \begin{table}[]
 \centering
-\captionsetup{skip=0.5\baselineskip,size=footnotesize,position=bottom}
-\footnotesize
-\label{ldaacc}
+\captionsetup{position=bottom}
 \begin{tabular}{lll}
 \toprule
 Categories                  & Max acc. & LDA max \\
 \midrule
-Village,Film                & 0.9992       & 0.998388    \\
-Village,Animal              & 0.9979       & --         \\
-Animal,Film                 & 0.9946       & 0.992510    \\
-Animal,Company              & 0.9943       & 0.987633    \\
-Animal,Film,Company,Village & 0.9706       & --         \\
-autos,baseball              & 0.9703       & 0.945402    \\
-guns,hardware               & 0.9693       & 0.965613    \\
-mideast,electronics         & 0.9689       & 0.959472    \\
-Animal,Film,Company         & 0.9688       & 0.961771    \\
-christian,guns              & 0.9380       & 0.925251    \\
-med,electronics             & 0.9324       & 0.931532    \\
-atheism,space               & 0.9232       & 0.864271    \\
-baseball,hockey             & 0.9063       & 0.798500    \\
-autos,baseball,space        & 0.8964       & 0.803371    \\
-Animal,Plant                & 0.8540       & --         \\
-politics,religion           & 0.8264       & 0.804404   \\
+Village, Film                & 0.9992       & 0.998388    \\
+Village, Animal              & 0.9979       & --         \\
+Animal, Film                 & 0.9946       & 0.992510    \\
+Animal, Company              & 0.9943       & 0.987633    \\
+Animal, Film, Company, Village & 0.9706       & --         \\
+autos, baseball              & 0.9703       & 0.945402    \\
+guns, hardware               & 0.9693       & 0.965613    \\
+mideast, electronics         & 0.9689       & 0.959472    \\
+Animal, Film, Company         & 0.9688       & 0.961771    \\
+christian, guns              & 0.9380       & 0.925251    \\
+med, electronics             & 0.9324       & 0.931532    \\
+atheism, space               & 0.9232       & 0.864271    \\
+baseball, hockey             & 0.9063       & 0.798500    \\
+autos, baseball, space        & 0.8964       & 0.803371    \\
+Animal, Plant                & 0.8540       & --         \\
+politics, religion           & 0.8264       & 0.804404   \\
 \bottomrule
 \end{tabular}
-\caption{Max. achieved accuracy and max. accuracy using only combinations of top 12 LDA-surfaced documents}
+\caption{Maximum brute-force accuracy obtained and maximum accuracy obtained using only combinations of the top 12 LDA-surfaced documents}\label{ldaacc}
 \end{table}
 
 In table \ref{ldaacc} we show the same maximum accuracy obtained via the brute-force testing of combinations along with the maximum accuracy achieved by testing the combinations from the top 12 documents. In many cases the LDA accuracy is quite close to the maximum brute-force accuracy, however in 3 cases we could not get a result for LDA because the top 12 documents did not include representatives from all categories. This is perhaps understandable in the case of the 4-category dataset, "Animal,Film,Company,Village." In the case of the "Animal,Plant" dataset we see that the brute force accuracy is relatively low, due to the fact that many similar words would be used to describe animals and plants ("species", "family", "habitat", etc), and so this perhaps explains why LDA had a difficult time teasing apart the topics. However in the case of the "Village,Animal" dataset, which gets a maximum brute-force accuracy of 99.79\% the same argument clearly cannot be made. This tells us that there is much room for improvement in our method for inferring topics in datasets for the purpose of surfacing good category representatives.
 
 \begin{table}[]
 \centering
-\captionsetup{skip=0.5\baselineskip,size=footnotesize,position=bottom}
-\footnotesize
-\label{lda_fasttext}
+\captionsetup{position=bottom}
 \begin{tabular}{lll}
 \toprule
 Categories                      & GloVe LDA       & FastText LDA \\
 \midrule
-Village,Film                               & 0.9984       & 0.9932                 \\
-Animal,Film                                & 0.9925       & 0.9934                 \\
-MoTransp,Nat.Place          & 0.9922       & 0.9926                 \\
-Village,Company                            & 0.9895       & 0.9896                 \\
-Animal,Company                             & 0.9876       & 0.9905                 \\
-Building,NaturalPlace                      & 0.9791       & 0.9807                 \\
-Album,Film                                 & 0.974        & 0.9825                 \\
-guns,hardware                              & 0.9656       & 0.9638                 \\
-Film,Company                               & 0.9632       & 0.9664                 \\
-Animal,Film,Company                        & 0.9618       & 0.9445                 \\
-Artist,Athlete                             & 0.9604       & 0.922                  \\
-mideast,electronics                        & 0.9595       & 0.9746                 \\
-autos,baseball                             & 0.9454       & 0.9511                 \\
-autos,hockey                               & 0.9413       & 0.9376                 \\
-Building,Ed.Inst.            & 0.9345       & 0.935                  \\
-Film,WrittenWork                           & 0.9341       & 0.9376                 \\
-med,electronics                            & 0.9315       & 0.9153                 \\
-christian,guns                             & 0.9253       & 0.9243                 \\
-med,religion                               & 0.888        & 0.888                  \\
-atheism,space                              & 0.8643       & 0.8713                 \\
-autos,guns                                 & 0.8417       & 0.8407                 \\
-autos,electronics                          & 0.8291       & 0.845                  \\
-space,med                                  & 0.8111       & 0.8405                 \\
-politics,religion                          & 0.8044       & 0.7526                 \\
-autos,baseball,space                       & 0.8034       & 0.8414                 \\
-baseball,hockey                            & 0.7985       & 0.8594                 \\
-religion,mideast                           & 0.7526       & 0.7808                 \\
-christian,atheism                          & 0.6553       & 0.6777                 \\
-atheism,religion                           & 0.6304       & 0.6522                 \\
+Village, Film                               & 0.9984       & 0.9932                 \\
+Animal, Film                                & 0.9925       & 0.9934                 \\
+MeansOfTransportation, NaturalPlace          & 0.9922       & 0.9926                 \\
+Village, Company                            & 0.9895       & 0.9896                 \\
+Animal, Company                             & 0.9876       & 0.9905                 \\
+Building, NaturalPlace                      & 0.9791       & 0.9807                 \\
+Album, Film                                 & 0.974        & 0.9825                 \\
+guns, hardware                              & 0.9656       & 0.9638                 \\
+Film, Company                               & 0.9632       & 0.9664                 \\
+Animal, Film, Company                        & 0.9618       & 0.9445                 \\
+Artist, Athlete                             & 0.9604       & 0.922                  \\
+mideast, electronics                        & 0.9595       & 0.9746                 \\
+autos, baseball                             & 0.9454       & 0.9511                 \\
+autos, hockey                               & 0.9413       & 0.9376                 \\
+Building, EducationalInstitution            & 0.9345       & 0.935                  \\
+Film, WrittenWork                           & 0.9341       & 0.9376                 \\
+med, electronics                            & 0.9315       & 0.9153                 \\
+christian, guns                             & 0.9253       & 0.9243                 \\
+med,r eligion                               & 0.888        & 0.888                  \\
+atheism, space                              & 0.8643       & 0.8713                 \\
+autos, guns                                 & 0.8417       & 0.8407                 \\
+autos, electronics                          & 0.8291       & 0.845                  \\
+space, med                                  & 0.8111       & 0.8405                 \\
+politics, religion                          & 0.8044       & 0.7526                 \\
+autos, baseball, space                       & 0.8034       & 0.8414                 \\
+baseball, hockey                            & 0.7985       & 0.8594                 \\
+religion, mideast                           & 0.7526       & 0.7808                 \\
+christian, atheism                          & 0.6553       & 0.6777                 \\
+atheism, religion                           & 0.6304       & 0.6522                 \\
 \bottomrule
 \end{tabular}
-\caption{Max accuracies on combinations of top 12 LDA documents: GloVe vs FastText}
+\caption{Max accuracies on combinations of top 12 LDA documents: GloVe vs FastText}\label{lda_fasttext}
 \end{table}
+
 
 We also tested the LDA accuracy on some datasets for which we had not run a brute-force test. Table \ref{lda_fasttext} shows these results, tested using both GloVe and FastText pre-trained word embeddings.
 
 \subsection{Relative length of category representatives}
-
+We were curious about the extent to which relative length of the chosen category representatives mattered. For example, if the user chose a very short document as the sole representative for category A and a very long document, or multiple documents, for category B, how much would this skew the predictions towards category B. On one dataset only, the 2-category subset "autos, baseball" from 20 Newsgroups, we went through every possible combination of category representatives, noted the length of each document, ran the auto-classification step, and noted the number of predictions in each category. With this information we could look at the correlation between relative representative length and relative prediction count for that category. We found a strong positive correlation between them, roughly 0.8.
  

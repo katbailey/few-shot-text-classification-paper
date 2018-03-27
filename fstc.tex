@@ -1,45 +1,39 @@
-%
-% File acl2012.tex
-%
-% Contact: Maggie Li (cswjli@comp.polyu.edu.hk), Michael White (mwhite@ling.osu.edu)
-%%
-%% Based on the style files for ACL2008 by Joakim Nivre and Noah Smith
-%% and that of ACL2010 by Jing-Shin Chang and Philipp Koehn
-
-
-\documentclass[11pt,letterpaper]{article}
+\documentclass{article} % For LaTeX2e
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc} % use 8-bit T1 fonts
 \usepackage[letterpaper]{geometry}
-\usepackage{acl2012}
-\usepackage{times}
 \usepackage{latexsym}
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{multirow}
+\usepackage{fstc,times}
 \usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\captionsetup[table]{
+    labelsep=newline,
+    justification=centering
+    }
+\usepackage{subcaption}
 \makeatletter
 \newcommand{\@BIBLABEL}{\@emptybiblabel}
 \newcommand{\@emptybiblabel}[1]{}
 \makeatother
 % \usepackage[draft]{hyperref}
 \usepackage[hidelinks]{hyperref}
-\setlength\titlebox{6.5cm}    % Expanding the titlebox
 
-
-\usepackage{booktabs}
-\usepackage{caption}
-
-
-\newcommand{\update}[1]{\textcolor{red}{#1}}
 
 \title{Few-Shot Text Classification with Pre-trained Word Embeddings and a Human in the Loop}
 
-\author{Katherine Bailey\and Sunny Chopra \\
+
+\author{Katherine Bailey \and Sunny Chopra \\
   Acquia \\
   \texttt{\{katherine.bailey,sunny.chopra\}@acquia.com}
 }
-
 \date{}
+
 
 \begin{document}
 \maketitle
@@ -52,7 +46,7 @@ Most of the literature around text classification treats it as a supervised lear
 
 \subsection*{Word Embeddings}
 
-Word Embeddings are representations of words as low-dimensional vectors of real numbers that capture the semantic relationships between words. In Natural Language Processing (NLP), some method for converting words to numeric values is always necessary as computation only works with numbers, not raw text. \newcite{mikolov2013distributed} introduced efficient techniques for learning distributed vector representations of words from huge corpora. This method is called word2vec, and since then alternative approaches have been put forward by others such as and \newcite{pennington2014glove}, known as GloVe, and \newcite{bojanowski2016subword}, known as FastText. There is also doc2vec for learning representations of entire documents.
+Word Embeddings are representations of words as low-dimensional vectors of real numbers that capture the semantic relationships between words. In Natural Language Processing (NLP), some method for converting words to numeric values is always necessary as computation only works with numbers, not raw text. \citep{mikolov2013distributed} introduced efficient techniques for learning distributed vector representations of words from huge corpora. This method is called word2vec, and since then alternative approaches have been put forward by others such as and \citep{pennington2014glove}, known as GloVe, and \citep{bojanowski2016subword}, known as FastText. There is also doc2vec for learning representations of entire documents.
 
 These approaches differ in the way the representations are generated.  Word2vec and doc2vec are "predictive" models, whereas GloVe is categorized as a "count-based" model.  Predictive models learn their vectors by predicting the target word given neighboring context words using a feed-forward neural network. The weights of this network are optimized by using stochastic gradient descent, and these weights are vector representation of the words in the vocabulary. In contrast, count-based models learn their vectors by finding a lower dimensional representation of each word by minimizing a reconstruction loss function on the co-occurrence count matrix given as an input.
 
@@ -73,13 +67,9 @@ Our approach involves a "classification engine" that the user (the content owner
 
 \input{discussion}
 
-\section{Conclusion}
-
-In this paper, we investigate the accuracy achievable on classification tasks using one-shot learning on publicly available datasets. We also investigate the accuracy that can be obtained by trying the combinations of category representatives that can be surfaced by running LDA on the dataset.
-
 % \clearpage
-\bibliography{thebibliography}
-\bibliographystyle{acl2012}
+\bibliography{fstc}
+\bibliographystyle{iclr2017_conference}
 
 \end{document}
 

@@ -1,20 +1,23 @@
 \begin{thebibliography}{}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[\protect\citename{Arora \bgroup et al.\egroup }2017]{arora2017asimple}
+\bibitem[Arora et~al.(2017)]{arora2017asimple}
 Sanjeev Arora and Yingyu Liang and Tengyu Ma.
 \newblock 2017.
 \newblock A Simple but Tough-to-Beat Baseline for Sentence Embeddings.
 \newblock {\em Proc. ICLR}.
 
-\bibitem[\protect\citename{Bojanowski \bgroup et al.\egroup
-  }2016]{bojanowski2016subword}
+\bibitem[Bojanowski et~al.(2016)]{bojanowski2016subword}
 Piotr Bojanowski, Edouard Grave, Armand Joulin, Tom{\'a}{\v{s}} Mikolov
 \newblock 2016.
 \newblock Enriching Word Vectors with Subword Information.
 \newblock In {\em Proc. TACL}.
 
-\bibitem[\protect\citename{Mikolov \bgroup et al.\egroup
-  }2013]{mikolov2013distributed}
+\bibitem[Mikolov et~al.(2013)]{mikolov2013distributed}
 Tom{\'a}{\v{s}} Mikolov, Ilya Sutskever, Kai Chen, Greg~S. Corrado, and Jeff
   Dean.
 \newblock 2013.
@@ -22,18 +25,18 @@ Tom{\'a}{\v{s}} Mikolov, Ilya Sutskever, Kai Chen, Greg~S. Corrado, and Jeff
   compositionality.
 \newblock In {\em Adv. NIPS}.
 
-\bibitem[\protect\citename{Mu \bgroup et al.\egroup }2017]{mu2017allbuttop}
+\bibitem[Mu et~al.(2017)]{mu2017allbuttop}
 Jiaqi Mu, Suma Bhat, Pramod Viswanath.
 \newblock 2017.
 \newblock All-but-the-Top: Simple and Effective Postprocessing for Word Representations.
 \newblock {\em https://arxiv.org/abs/1702.01417}.
 
-
-\bibitem[\protect\citename{Pennington \bgroup et al.\egroup }2014]{pennington2014glove}
+\bibitem[Pennington et~al.(2014)]{pennington2014glove}
 Jeffrey Pennington and Richard Socher and Christopher D. Manning.
 \newblock 2014.
 \newblock GloVe: Global Vectors for Word Representation.
 \newblock {\em Empirical Methods in Natural Language Processing (EMNLP)}, 1532--1543.
+
 
 
 

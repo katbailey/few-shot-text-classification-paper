@@ -4,7 +4,7 @@ In this section, we provide the details of the text classification system.
 \subsection{Document Embeddings}
  For any given collection of documents, which we refer to as a batch, each document needs to be converted to a fixed-length vector so that we can measure similarity between them. 
 
-For our task, which is about classifying content, we found there to be little improvement in accuracy when running the PCA step, as suggested by \newcite{arora2017asimple} and \newcite{mu2017allbuttop}, over just using the weighted average of the word vectors. Morevover, PCA introduced a level of complexity that meant the embedding of a document was always batch-specific. For pragmatic reasons it was preferable for us to have document representations that were independent of the batch they came from. Hence our embedding method is simply:
+For our task, which is about classifying content, we found there to be little improvement in accuracy when running the PCA step, as suggested by \citep{arora2017asimple} and \citep{mu2017allbuttop}, over just using the weighted average of the word vectors. Morevover, PCA introduced a level of complexity that meant the embedding of a document was always batch-specific. For pragmatic reasons it was preferable for us to have document representations that were independent of the batch they came from. Hence our embedding method is simply:
 
 \begin{algorithm}[!h]
 \SetKwInOut{Input}{Input}
