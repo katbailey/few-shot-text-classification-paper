@@ -35,9 +35,30 @@ Jiaqi Mu, Suma Bhat, Pramod Viswanath.
 Jeffrey Pennington and Richard Socher and Christopher D. Manning.
 \newblock 2014.
 \newblock GloVe: Global Vectors for Word Representation.
-\newblock {\em Empirical Methods in Natural Language Processing (EMNLP)}, 1532--1543.
+\newblock {\em Empirical Methods in Natural Language Processing (EMNLP)}, 1532--1543}.
 
+\bibitem[Jagarlamudi et~al.(2012)]{conf/eacl/JagarlamudiDU12}
+Jagadeesh Jagarlamudi, Hal Daume III, and Raghavendra Udupa.
+\newblock 2012.
+\newblock Incorporating Lexical Priors into Topic Models.
+\newblock {\em European Chapter of the Association for Computational Linguistics (EACL)}, 204--213}.
 
+\bibitem[Das et~al.(2015)]{conf/acl/DasZD15}
+Rajarshi Das, Manzil Zaheer, and Chris Dyer.
+\newblock 2015.
+\newblock Gaussian LDA for Topic Models with Word Embeddings.
+\newblock {\em The Association for Computer Linguistics (ACL)}, 795--804}.
 
+\bibitem[Srivastava et~al.(2017)]{2017arXiv170301488S}
+Akash Srivastava and Charles Sutton.
+\newblock 2017.
+\newblock Autoencoding Variational Inference for Topic Models.
+\newblock {\em https://arxiv.org/abs/1703.01488}.
+
+\bibitem[Read et~al.(2009)]{Read2009}
+Jesse Read, Bernhard Pfahringer, Geoff Holmes, Eibe Frank.
+\newblock 2009.
+\newblock Classifier Chains for Multi-label Classification.
+\newblock {\em Proc 13th European Conference on Principles and Practice of Knowledge Discovery in Databases and 20th European Conference on Machine Learning, Springer}.
 
 \end{thebibliography}
