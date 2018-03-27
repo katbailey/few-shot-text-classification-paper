@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citename{Arora \bgroup et al.\egroup }2017]{arora2017asimple}
+Sanjeev Arora and Yingyu Liang and Tengyu Ma.
+\newblock 2017.
+\newblock A Simple but Tough-to-Beat Baseline for Sentence Embeddings.
+\newblock {\em Proc. ICLR}.
+
 \bibitem[\protect\citename{Bojanowski \bgroup et al.\egroup
   }2016]{bojanowski2016subword}
 Piotr Bojanowski, Edouard Grave, Armand Joulin, Tom{\'a}{\v{s}} Mikolov
@@ -16,10 +22,19 @@ Tom{\'a}{\v{s}} Mikolov, Ilya Sutskever, Kai Chen, Greg~S. Corrado, and Jeff
   compositionality.
 \newblock In {\em Adv. NIPS}.
 
+\bibitem[\protect\citename{Mu \bgroup et al.\egroup }2017]{mu2017allbuttop}
+Jiaqi Mu, Suma Bhat, Pramod Viswanath.
+\newblock 2017.
+\newblock All-but-the-Top: Simple and Effective Postprocessing for Word Representations.
+\newblock {\em https://arxiv.org/abs/1702.01417}.
+
+
 \bibitem[\protect\citename{Pennington \bgroup et al.\egroup }2014]{pennington2014glove}
 Jeffrey Pennington and Richard Socher and Christopher D. Manning.
 \newblock 2014.
 \newblock GloVe: Global Vectors for Word Representation.
 \newblock {\em Empirical Methods in Natural Language Processing (EMNLP)}, 1532--1543.
+
+
 
 \end{thebibliography}
